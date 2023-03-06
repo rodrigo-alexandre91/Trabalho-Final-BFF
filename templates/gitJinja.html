@@ -1,0 +1,31 @@
+{% extends 'index.html'%}
+
+{% block head %}
+    Filmes (Jinja)
+{% endblock %}
+
+{% block body %}
+    <h2 class="text-center mb-0">3 - Filmes (Jinja)</h2>
+    <h4 class="text-center"><span><a href="http://127.0.0.1:5000/">Voltar</a></span></h4>
+    <div class="card text-dark mb-3 p-3 text-center">
+        <div class="row m-0">
+            <h2 class="mt-2">Procurar Filmes</h2>
+            {% if erro %}
+                <h4>Erro: {{erro}}</h4>
+            {% elif not filmes %}
+                <h4>Nenhum filmes encontrado</h4>
+            {% else %}
+                {% for filme in filmes %}
+                    <div class="card card-similar col-2 p-0">
+                        <img src="{{filme.foto}}" class="card-img-top" id="foto_similar_1">
+                        <div class="card-body">
+                            <h5 class="card-title" id="nome_similar_1">{{filme.titulo}}</h5>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}            
+        </div>
+        <h3 class="mt-3"><a href="http://127.0.0.1:5000/">Voltar</a></h3>
+    </div>
+{% endblock %}
+
